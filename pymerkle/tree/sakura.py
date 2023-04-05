@@ -2,8 +2,8 @@
 Merkle-tree implementation following Sakura
 """
 
-from pymerkle.utils import log2, decompose
-from pymerkle.tree.base import BaseMerkleTree, InvalidChallenge
+from ..utils import log2, decompose
+from .base import BaseMerkleTree, InvalidChallenge
 
 
 class Node:
@@ -254,7 +254,7 @@ class MerkleTree(BaseMerkleTree):
         return leaf
 
 
-    def append_entry(self, data):
+    def append_entry(self, data, encoding=True):
         """
         Append new leaf storing the hash of the provided data
 
@@ -263,7 +263,10 @@ class MerkleTree(BaseMerkleTree):
         :returns: hash stored by new leaf
         :rtype: bytes
         """
-        new_leaf = Leaf(self.hash_entry(data))
+        if encoding:
+            new_leaf = Leaf(self.hash_entry(data))
+        else:
+            new_leaf = Leaf(bytes(data))
 
         if not self:
             self.root_node = self.update_tail(new_leaf)

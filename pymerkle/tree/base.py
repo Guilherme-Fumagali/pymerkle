@@ -76,7 +76,7 @@ class BaseMerkleTree(HashEngine, metaclass=ABCMeta):
         """
 
     @abstractmethod
-    def append_entry(self, data):
+    def append_entry(self, data, encoding=True):
         """
         Should append and return the hash of the provided data
         """
@@ -165,7 +165,7 @@ class BaseMerkleTree(HashEngine, metaclass=ABCMeta):
         if offset >= self.length:
             raise InvalidChallenge("Provided offset is out of bounds")
 
-        leaf = self.leaf(offset)
+        leaf = self.get_leaf(offset)
         offset, path = self.generate_inclusion_path(leaf)
 
         proof = self.build_proof(offset, path)
