@@ -133,7 +133,7 @@ class BaseMerkleTree(HashEngine, metaclass=ABCMeta):
         Should return the inclusion path based on the provided leaf
         """
 
-    def prove_inclusion(self, data):
+    def prove_inclusion(self, data, checksum=True):
         """
         Prove inclusion of the provided entry
 
@@ -142,8 +142,11 @@ class BaseMerkleTree(HashEngine, metaclass=ABCMeta):
         :rtype: MerkleProof
         :raises InvalidChallenge: if the provided entry is not included
         """
-        checksum = self.hash_entry(data)
-        leaf = self.find_leaf(checksum)
+        if checksum:
+            checksum = self.hash_entry(data)
+            leaf = self.find_leaf(checksum)
+        else:
+            leaf = self.find_leaf(data)
 
         if not leaf:
             raise InvalidChallenge("Provided entry is not included")
