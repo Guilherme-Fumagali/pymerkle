@@ -337,6 +337,26 @@ class MerkleTree(BaseMerkleTree):
 
             curr = curr.next
 
+    def find_leaf_index(self, checksum):
+        """
+        Detect the index of the leftmost leaf node storing the provided hash
+
+        .. note:: Returns *None* if no such leaf node exists
+
+        :param value: hash to detect
+        :type value: bytes
+        :rtype: int
+        """
+        curr = self.head
+        index = 0
+        while curr:
+            if curr.value == checksum:
+                return index
+
+            curr = curr.next
+            index += 1
+
+        return None
 
     def generate_consistency_path(self, sublength):
         """
