@@ -266,7 +266,7 @@ class MerkleTree(BaseMerkleTree):
         if encoding:
             new_leaf = Leaf(self.hash_entry(data))
         else:
-            new_leaf = Leaf(bytes(data))
+            new_leaf = Leaf(data)
 
         if not self:
             self.root_node = self.update_tail(new_leaf)
