@@ -1,6 +1,10 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "pymerkle_modified"
-version = "0.0.1"
+name = "pymerkle-logsTransparentes"
+version = "0.0.3"
 authors = [
   { name="Guilherme Fumagali", email="guilhermefumarques@gmail.com" },
 ]

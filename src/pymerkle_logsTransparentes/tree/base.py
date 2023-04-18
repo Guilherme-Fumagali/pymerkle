@@ -4,8 +4,8 @@ Abstract merkle-tree interface
 
 from abc import ABCMeta, abstractmethod
 
-from ..hashing import HashEngine
-from ..proof import MerkleProof
+from pymerkle_logsTransparentes.hashing import HashEngine
+from pymerkle_logsTransparentes.proof import MerkleProof
 
 
 class InvalidChallenge(Exception):

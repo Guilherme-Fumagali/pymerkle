@@ -2,8 +2,8 @@
 Merkle-tree implementation following Sakura
 """
 
-from ..utils import log2, decompose
-from .base import BaseMerkleTree, InvalidChallenge
+from pymerkle_logsTransparentes.utils import log2, decompose
+from pymerkle_logsTransparentes.tree.base import BaseMerkleTree, InvalidChallenge
 
 
 class Node:
