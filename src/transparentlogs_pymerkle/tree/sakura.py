@@ -2,8 +2,8 @@
 Merkle-tree implementation following Sakura
 """
 
-from pymerkle_logsTransparentes.utils import log2, decompose
-from pymerkle_logsTransparentes.tree.base import BaseMerkleTree, InvalidChallenge
+from transparentlogs_pymerkle.utils import log2, decompose
+from transparentlogs_pymerkle.tree.base import BaseMerkleTree, InvalidChallenge
 
 
 class Node:
@@ -266,8 +266,6 @@ class MerkleTree(BaseMerkleTree):
         if encoding:
             new_leaf = Leaf(self.hash_entry(data))
         else:
-            if not isinstance(data, str) or not isinstance(data, bytes):
-                data = str(data) 
             new_leaf = Leaf(bytes(data))
 
         if not self:

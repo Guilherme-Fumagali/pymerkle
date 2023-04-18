@@ -3,7 +3,7 @@ Hashing machinery for data insertion and proof verification
 """
 
 import hashlib
-from pymerkle_logsTransparentes.constants import ENCODINGS, ALGORITHMS
+from transparentlogs_pymerkle.constants import ENCODINGS, ALGORITHMS
 
 
 class UnsupportedParameter(Exception):

@@ -2,8 +2,8 @@
 merkle-tree cryptography
 """
 
-from pymerkle_logsTransparentes.tree import MerkleTree
-from pymerkle_logsTransparentes.proof import MerkleProof, verify_inclusion, verify_consistency
+from transparentlogs_pymerkle.tree import MerkleTree
+from transparentlogs_pymerkle.proof import MerkleProof, verify_inclusion, verify_consistency
 
 
 __version__ = '4.0.0'

@@ -6,7 +6,7 @@ import os
 import json
 from time import time
 
-from pymerkle_logsTransparentes.hashing import HashEngine
+from transparentlogs_pymerkle.hashing import HashEngine
 
 
 class InvalidProof(Exception):
