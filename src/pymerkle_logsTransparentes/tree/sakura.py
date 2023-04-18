@@ -266,6 +266,8 @@ class MerkleTree(BaseMerkleTree):
         if encoding:
             new_leaf = Leaf(self.hash_entry(data))
         else:
+            if not isinstance(data, str) or not isinstance(data, bytes):
+                data = str(data) 
             new_leaf = Leaf(bytes(data))
 
         if not self:
